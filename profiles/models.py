@@ -1,3 +1,7 @@
 from django.db import models
+from users.models import CustomUser
 
-# Create your models here.
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    skills = models.TextField()  # store comma-separated or as JSON
